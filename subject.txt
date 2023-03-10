@@ -1,0 +1,27 @@
+                        <div class="subject_input">
+                            <input class="subject_option" type="checkbox" name="subject" id="maths" value="maths">
+                            <label for="maths" id="math">Maths</label>
+                        </div>
+                        <div class="subject_input">
+                            <input class="subject_option" type="checkbox" name="subject" id="biology" value="biology">
+                            <label for="biology">Biology</label>
+                        </div>
+                        <div class="subject_input">
+                            <input class="subject_option" type="checkbox" name="subject" id="economics"
+                                value="economics">
+                            <label for="economics">Economics</label>
+                        </div>
+                        <div class="subject_input">
+                            <input class="subject_option" type="checkbox" name="subject" id="chemistry"
+                                value="chemistry">
+                            <label for="chemistry">Chemistry</label>
+                        </div>
+                        <div class="subject_input">
+                            <input class="subject_option" type="checkbox" name="subject" id="physics" value="physics">
+                            <label for="physics">Physics</label>
+                        </div>
+                        <div class="subject_input">
+                            <input class="subject_option" type="checkbox" name="subject" id="english" value="english">
+                            <label for="english">English</label>
+                        </div>
+                        <div id = 'empty'> </div>

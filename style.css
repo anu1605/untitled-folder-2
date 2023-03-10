@@ -157,19 +157,21 @@ h2:hover{
   height: 0.5rem;
 }
 
-.option_section {
+/* .option_section {
   position: absolute;
   visibility: hidden;
-}
+} */
 
 .expandible_class {
   position: static;
   visibility: visible;
 }
-
+.upload_image{
+  margin-top: 2.6rem;
+}
 .rotate_up {
   transform: rotate(180deg);
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 .rotate_down {
@@ -204,11 +206,12 @@ td {
   width: 0;
   height: 0;
   padding: 0;
+  margin: 0.2rem;
 }
 
 .qualificatio_table input {
   width: fit-content;
-  height: 100%;
+  padding: 0.5rem;
 }
 
 td input {
@@ -222,6 +225,7 @@ td input {
   margin: 0.2rem;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .add_and_delete button {
@@ -235,8 +239,8 @@ td input {
   flex-direction: column;
 }
 
-.add,
-.minus {
+#add,
+#minus {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -247,11 +251,11 @@ td input {
   color: white
 }
 
-.add {
+#add {
   background-color: green;
 }
 
-.minus {
+#minus {
   background-color: red;
 }
 
@@ -261,8 +265,10 @@ p[id=message], p[id=error],p[id=pwd_message],p[id=subect_error],p[id=hobbies_err
   font-weight: 600;
   color: red;
   font-size: 0.5rem;
+  height: 0.6rem;
 }
 p[id=image_error],p[id=date_error]{
+  height: 0.6rem;
   font-weight: 600;
   color: red;
   font-size: 0.5rem;
@@ -301,4 +307,9 @@ div[id=print]{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 0.8rem;
   color: black;
+}
+textarea{
+  font-size: 0.6rem;
+  width: 100%;
+  resize: none;
 }
