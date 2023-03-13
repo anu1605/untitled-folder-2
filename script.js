@@ -9,19 +9,13 @@
   var selectedSbject = [];
   var selectedHobbies = [];
   var response;
-  
-  
 
-
+  $("#submit").click(func);
   
-  $.ajaxSetup({
-    cache: false
-  });
-  $('.add').click(addFunc);
-  
-  
+  $(".subject_input > input").change(checkSubject);
 
   
+
   $("option").click(function(){
     { 
     if (this.selected) {
@@ -191,37 +185,19 @@
   $("#menu").click(addClass);
   
   function addClass() {
-    if(!alreadyClick){
-      $("#menu")[0].classList.remove("rotate_down");
-      $("#menu")[0].classList.add("rotate_up");
-      $('#option_container').load("subject.txt");
+    var container = $("#option_container")[0];
+    var arrow = $("#menu")[0];
+    if (!alreadyClick) {
+      container.classList.add("expandible_class");
+      arrow.classList.remove("rotate_down");
+      arrow.classList.add("rotate_up");
       alreadyClick = true;
-      $.get("subject.txt",function(){
-        $(".subject_input > input").change(checkSubject);
-      console.log($(".subject_input > input"));
-    });
-    }
-    else {
-      $("#menu")[0].classList.add("rotate_down");
-      $("#menu")[0].classList.remove("rotate_up");
-      $('#option_container').load("subject.txt #empty");
-      selectedSbject.splice[0,-1];
+    } else {
+      container.classList.remove("expandible_class");
+      arrow.classList.add("rotate_down");
+      arrow.classList.remove("rotate_up");
       alreadyClick = false;
     }
-
-    // var container = $("#option_container")[0];
-    // var arrow = $("#menu")[0];
-    // if (!alreadyClick) {
-    //   container.classList.add("expandible_class");
-    //   arrow.classList.remove("rotate_down");
-    //   arrow.classList.add("rotate_up");
-    //   alreadyClick = true;
-    // } else {
-    //   container.classList.remove("expandible_class");
-    //   arrow.classList.add("rotate_down");
-    //   arrow.classList.remove("rotate_up");
-    //   alreadyClick = false;
-    // }
   }
   
   function checkSubject() {
