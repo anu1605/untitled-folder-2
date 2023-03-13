@@ -15,7 +15,14 @@
   $(".subject_input > input").change(checkSubject);
 
   $("#option_container").hide();
-  
+  $('#hobbies').focus(function(){
+    $(this).fadeTo("slow",0.7);
+  });
+  $('#hobbies').blur(function(){
+    $(this).fadeTo("fast",1);
+  });
+
+ 
 
   $("option").click(function(){
     { 
@@ -28,23 +35,36 @@
 
   });
   
-  $(document).ready(function(){
+  // $(document).ready(function(){
 
-    $("#submit").click(func);
+  //   $("#submit").click(func);
   
-  });
-  function func() {
+  // });
+  function submit() {
     if (emptyInput != undefined) emptyInput.classList.remove("redBorder");
-    // validate firstname
-    if ($("#fname")[0].value == "") {
-      if (emptyInput != undefined) emptyInput.classList.remove("redBorder");
-      emptyInput = $("#fname")[0];
-      emptyInput.classList.add("redBorder");
-      emptyInput.select();
-      emptyInput.scrollIntoView();
-      return;
+      $(".input_text").removeClass('redBorder');
+      // validate firstname
+    if ($("#fname").val().trim() == "") {
+      $("#fname").focus();
+      $("#fname").addClass('redBorder');
+      // if (emptyInput != undefined) emptyInput.classList.remove("redBorder");
+      // emptyInput = $("#fname")[0];
+      // emptyInput.classList.add("redBorder");
+      // emptyInput.select();
+      // emptyInput.scrollIntoView();
+      return false;
     }
-  
+    $.ajax({
+      url: "ajax.php",
+      type: "post",
+      data: {'fname':$("#fname").val().trim(),'action':'RegistrationofUsers'},
+      success: function(msg)
+      {
+        console.log(msg);
+        // $("#div1").html(result);
+      }
+  });
+  return false;
     // validate lastname
     if ($("#lname")[0].value == "") {
       removeBorder();
@@ -178,6 +198,7 @@
       } else
         printContainer.innerHTML += item[0] + ": " + item[1] + "<br>" + "<br>";
     }
+    
   }
   
 
@@ -188,16 +209,12 @@
   function addClass() {
     var container = $("#option_container");
     var arrow = $("#menu")[0];
-    container.toggle();
+    container.toggle("slow");
     if (!alreadyClick) {
-      // container.classList.add("expandible_class");
-      // container.show();
       arrow.classList.remove("rotate_down");
       arrow.classList.add("rotate_up");
       alreadyClick = true;
     } else {
-      // container.classList.remove("expandible_class");
-      // container.hide();
       arrow.classList.add("rotate_down");
       arrow.classList.remove("rotate_up");
       alreadyClick = false;
