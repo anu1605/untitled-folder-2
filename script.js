@@ -14,6 +14,7 @@
   
   $(".subject_input > input").change(checkSubject);
 
+  $("#option_container").hide();
   
 
   $("option").click(function(){
@@ -185,15 +186,18 @@
   $("#menu").click(addClass);
   
   function addClass() {
-    var container = $("#option_container")[0];
+    var container = $("#option_container");
     var arrow = $("#menu")[0];
+    container.toggle();
     if (!alreadyClick) {
-      container.classList.add("expandible_class");
+      // container.classList.add("expandible_class");
+      // container.show();
       arrow.classList.remove("rotate_down");
       arrow.classList.add("rotate_up");
       alreadyClick = true;
     } else {
-      container.classList.remove("expandible_class");
+      // container.classList.remove("expandible_class");
+      // container.hide();
       arrow.classList.add("rotate_down");
       arrow.classList.remove("rotate_up");
       alreadyClick = false;
