@@ -40,14 +40,15 @@
     </form>
     <div class="preview">
         <?php
+
         // row_index
-        if (isset($_GET['row_index'])) {
+        if (isset($_GET['row_index']) && $_GET['row_index'] != "") {
             $row_index = $_GET['row_index'];
         } else $row_index = 0;
 
 
         // rows
-        if (isset($_GET['rows'])) {
+        if (isset($_GET['rows']) && $_GET['rows'] != "") {
             $row_per_page = $_GET['rows'];
         } else $row_per_page = 3;
         ?>
@@ -73,7 +74,7 @@
             <tr>
                 <?php
                 include dirname(__FILE__, 2) . "/" . "php/" . "connectConfig.php";
-                if (isset($_GET['ID'])) {
+                if (isset($_GET['ID']) &&  $_GET['ID'] != "") {
                     $main_ID = $_GET['ID'];
                     $delete_main = mysqli_query($conn, "DELETE FROM table_form WHERE post_id = $main_ID");
                     // if ($delete_main) {
@@ -84,12 +85,12 @@
 
 
 
-                if (isset($_GET['search'])) {
+                if (isset($_GET['search']) &&  $_GET['search'] != "") {
                     $searched_item = $_GET['search'];
-                    if (isset($_GET['filter_item'])) {
+                    if (isset($_GET['filter_item']) &&  $_GET['filter_item'] != "") {
                         $filter_item = $_GET['filter_item'];
                         $switch = $_GET['switch'];
-                        if (isset($_GET['switch'])) {
+                        if (isset($_GET['switch']) &&  $_GET['switch'] != "") {
 
                             if ($switch === '1') {
                                 $query = $conn->query("SELECT * FROM table_form  WHERE firstname LIKE '%$searched_item%' OR lastname LIKE '%$searched_item%' OR email LIKE '%$searched_item%' OR hobbies LIKE '%$searched_item%' OR subject LIKE '%$searched_item%' or date LIKE '%$searched_item%' ORDER BY $filter_item DESC LIMIT $row_index,$row_per_page");
@@ -98,20 +99,20 @@
                             }
                         }
                     } else $query = $conn->query("SELECT * FROM table_form  WHERE firstname LIKE '%$searched_item%' OR lastname LIKE '%$searched_item%' OR email LIKE '%$searched_item%' OR hobbies LIKE '%$searched_item%' OR subject LIKE '%$searched_item%' or date LIKE '%$searched_item%' LIMIT $row_index,$row_per_page");
-                } else if (isset($_GET['filter_item'])) {
+                } else if (isset($_GET['filter_item']) &&  $_GET['filter_item'] != "") {
                     $filter_item = $_GET['filter_item'];
                     $switch = $_GET['switch'];
 
-                    if (isset($_GET['switch']))
+                    if (isset($_GET['switch']) &&  $_GET['switch'] != "")
                         if ($switch === '1') {
-                            $query = $conn->query("SELECT * FROM table_form WHERE post_id BETWEEN  (SELECT post_id  FROM table_form LIMIT 1)+ $row_index and (SELECT post_id FROM table_form LIMIT 1)+$row_index+1  ORDER BY $filter_item DESC ");
+                            $query = $conn->query("SELECT * FROM table_form  ORDER BY $filter_item DESC LIMIT $row_index,$row_per_page ");
                         } else if ($switch === '0') {
-                            $query = $conn->query("SELECT * FROM table_form WHERE post_id BETWEEN  (SELECT post_id  FROM table_form LIMIT 1)+ $row_index and (SELECT post_id FROM table_form LIMIT 1)+$row_index+1  ORDER BY $filter_item ASC");
+                            $query = $conn->query("SELECT * FROM table_form  ORDER BY $filter_item ASC LIMIT $row_index,$row_per_page");
                         }
                 } else
                     $query = $conn->query("SELECT * FROM table_form LIMIT $row_index,$row_per_page");
 
-                if (isset($_GET['search']))
+                if (isset($_GET['search']) &&  $_GET['search'] != "")
                     $numRow = mysqli_num_rows($conn->query("SELECT * FROM table_form  WHERE firstname LIKE '%$searched_item%' OR lastname LIKE '%$searched_item%' OR email LIKE '%$searched_item%' OR hobbies LIKE '%$searched_item%' OR subject LIKE '%$searched_item%' or date LIKE '%$searched_item%'"));
                 else
                     $numRow = mysqli_num_rows($conn->query("SELECT * FROM table_form"));
@@ -179,7 +180,7 @@
                 else $index = ($i - 1) * $row_per_page;
             ?>
                 <tr class="pagination_row">
-                    <td class="pagination_cell"><a class="sort_anchor pagination_anchor" href="/php/display.php?row_index=<?php echo $index ?>&search=<?php echo isset($_GET['search']) ? $_GET['search'] : ""; ?>&rows=<?php echo isset($_GET['rows']) ? $_GET['rows'] : 3; ?>"><?php echo $i; ?></a></td>
+                    <td class="pagination_cell"><a class="sort_anchor pagination_anchor" href="/php/display.php?row_index=<?php echo $index ?>&search=<?php echo isset($_GET['search']) ? $_GET['search'] : ""; ?>&rows=<?php echo isset($_GET['rows']) ? $_GET['rows'] : 3; ?>&filter_item=<?php echo  isset($_GET['filter_item']) ? $_GET['filter_item'] : ""; ?>&switch=<?php echo isset($_GET['switch']) ? $_GET['switch'] : 1 ?>"><?php echo $i; ?></a></td>
                 </tr>
             <?php
             }
@@ -191,6 +192,7 @@
 
     <?php
     include dirname(__FILE__, 2) . "/" . "php/" . "display_qualification.php";
+    include dirname(__FILE__, 2) . "/" . "php/" . "pagination.php";
     ?>
 </body>
 
