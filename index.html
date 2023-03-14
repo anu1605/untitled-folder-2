@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/style/indexStyle.css">
         <title>Document</title>
     </head>
 
@@ -28,27 +28,30 @@
         </section>
 
         <section class="form_content">
-            <form id="information">
+            <form id="information" enctype=”multipart/form-data”>
                 <label for="fname">Firstname:</label><br>
-                <input class="input_text" type="text" id="fname" value="" name="Firstname" placeholder="John"><br>
+                <input class="input_text input_field" type="text" id="fname" value="" name="Firstname"
+                    placeholder="John"><br>
 
                 <label for="lname">Lastname:</label><br>
-                <input class="input_text" type="text" name="Lastname" value="" id="lname" placeholder="doe"> <br>
+                <input class="input_text input_field" type="text" name="Lastname" value="" id="lname" placeholder="doe">
+                <br>
                 <label for="email">Email Id:</label><br>
-                <input class="input_text" type="text" value="" id="email" name="Email"
+                <input class="input_text input_field" type="text" value="" id="email" name="Email"
                     placeholder="john.doeS@gmail.com"><br>
                 <div class="error_message">
                     <p id="error"></p>
                 </div>
 
                 <h2 id="gender_selection" class="gender_class ">Select Gender:</h2>
-                <input class="radio_button" type="radio" id="male" value="Male" name="gender" value="Male">
+                <input class="radio_button input_field" type="radio" id="male" value="Male" name="gender" value="Male">
                 <label for="male">Male</label><br>
-                <input class="radio_button" type="radio" id="female" value="Female" name="gender" value="Female">
+                <input class="radio_button input_field" type="radio" id="female" value="Female" name="gender"
+                    value="Female">
                 <label for="female">Female</label>
 
                 <h2 id="hobbies_heading">Hobbies</h2>
-                <select class="hobbies" name="Hobbies" id="hobbies" multiple>
+                <select class="hobbies input_field" name="Hobbies[]" id="hobbies" multiple>
                     <option value="Reading">Reading</option>
                     <option value="Sketching">Sketching</option>
                     <option value="Dancing">Dancing</option>
@@ -71,29 +74,29 @@
 
                     <div id="option_container" class="option_section">
                         <div class="subject_input">
-                            <input class="subject_option" type="checkbox" name="subject" id="maths" value="maths">
+                            <input class="subject_option" type="checkbox" name="subject[]" id="maths" value="maths">
                             <label for="maths" id="math">Maths</label>
                         </div>
                         <div class="subject_input">
-                            <input class="subject_option" type="checkbox" name="subject" id="biology" value="biology">
+                            <input class="subject_option" type="checkbox" name="subject[]" id="biology" value="biology">
                             <label for="biology">Biology</label>
                         </div>
                         <div class="subject_input">
-                            <input class="subject_option" type="checkbox" name="subject" id="economics"
+                            <input class="subject_option" type="checkbox" name="subject[]" id="economics"
                                 value="economics">
                             <label for="economics">Economics</label>
                         </div>
                         <div class="subject_input">
-                            <input class="subject_option" type="checkbox" name="subject" id="chemistry"
+                            <input class="subject_option" type="checkbox" name="subject[]" id="chemistry"
                                 value="chemistry">
                             <label for="chemistry">Chemistry</label>
                         </div>
                         <div class="subject_input">
-                            <input class="subject_option" type="checkbox" name="subject" id="physics" value="physics">
+                            <input class="subject_option" type="checkbox" name="subject[]" id="physics" value="physics">
                             <label for="physics">Physics</label>
                         </div>
                         <div class="subject_input">
-                            <input class="subject_option" type="checkbox" name="subject" id="english" value="english">
+                            <input class="subject_option" type="checkbox" name="subject[]" id="english" value="english">
                             <label for="english">English</label>
                         </div>
                         <div id='empty'> </div>
@@ -122,20 +125,20 @@
                                 <tr>
 
                                     <td id="education">
-                                        <input class="education_level" type="text" id="education_level" name="education"
-                                            value="" placeholder="Education qualification">
+                                        <input class="education_level input_field" type="text" id="education_level"
+                                            name="education[]" value="" placeholder="Education qualification">
                                     </td>
                                     <td>
-                                        <input class="field" type="text" id="field" name="field" value=""
+                                        <input class="field input_field" type="text" id="field" name="field[]" value=""
                                             placeholder="Field">
                                     </td>
                                     <td>
-                                        <input class="year" type="number" min="1990" id="year" name="year" value=""
-                                            placeholder="Year">
+                                        <input class="year input_field" type="number" min="1990" id="year" name="year[]"
+                                            value="" placeholder="Year">
                                     </td>
                                     <td>
-                                        <input class="marks" type="number" name="marks" id="marks" value=""
-                                            placeholder="Marks Obtained">
+                                        <input class="marks input_field" type="number" name="marks[]" id="marks"
+                                            value="" placeholder="Marks Obtained">
                                     </td>
                                     <td class="button_column">
                                         <div id="add_and_delete" class="add_and_delete">
@@ -166,20 +169,20 @@
                     <textarea name="about_yourself" id="about_yourself" cols="50" rows="5"></textarea>
                 </div>
 
-                <div class="upload_image">
+                <!-- <div class="upload_image">
                     <label for="myFile">Add Image</label>
                     <br>
                     <input type="file" id="myFile" name="filename" value="" onchange="return fileValidation()">
                     <div class="image_message">
                         <p id="image_error"></p>
                     </div>
-                </div>
+                </div> -->
                 <br>
 
                 <div class="password">
                     <label for="pwd">Password:</label>
                     <br>
-                    <input value="" type="password" id="pwd" name="pwd"
+                    <input class="input_field" value="" type="password" id="pwd" name="pwd"
                         pattern="(?=.*\d) (?=.*[a-z]) (?=.*[A-Z]) .{8,}">
                     <br>
                     <br>
@@ -193,7 +196,7 @@
 
                     <label for="pwd">Confirm Password:</label>
                     <br>
-                    <input type="password" id="confirm_pwd" name="confirm_pwd val" value="">
+                    <input class="input_field" type="password" id="confirm_pwd" name="confirm_pwd val" value="">
                     <div class="pwd_message">
                         <p id="pwd_message"></p>
                     </div>
@@ -201,7 +204,8 @@
 
                 <div class="date" id="date">
                     <label for="date_input">Date:</label> <br>
-                    <input type="date" class="" id="date_input" name="date" value="" placeholder="mm/dd/yyyy">
+                    <input type="date" class="input_field" id="date_input" name="date" value=""
+                        placeholder="mm/dd/yyyy">
                     <div>
                         <p id="date_error"></p>
                     </div>

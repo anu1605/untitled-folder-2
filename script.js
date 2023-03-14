@@ -10,7 +10,7 @@
   var selectedHobbies = [];
   var response;
 
-  $("#submit").click(func);
+  // $("#submit").click(func);
   
   $(".subject_input > input").change(checkSubject);
 
@@ -41,164 +41,167 @@
   
   // });
   function submit() {
-    if (emptyInput != undefined) emptyInput.classList.remove("redBorder");
-      $(".input_text").removeClass('redBorder');
-      // validate firstname
-    if ($("#fname").val().trim() == "") {
-      $("#fname").focus();
-      $("#fname").addClass('redBorder');
-      // if (emptyInput != undefined) emptyInput.classList.remove("redBorder");
-      // emptyInput = $("#fname")[0];
-      // emptyInput.classList.add("redBorder");
-      // emptyInput.select();
-      // emptyInput.scrollIntoView();
-      return false;
-    }
-    $.ajax({
-      url: "ajax.php",
-      type: "post",
-      data: {'fname':$("#fname").val().trim(),'action':'RegistrationofUsers'},
-      success: function(msg)
-      {
-        console.log(msg);
-        // $("#div1").html(result);
-      }
-  });
-  return false;
-    // validate lastname
-    if ($("#lname")[0].value == "") {
-      removeBorder();
-      emptyInput = $("#lname")[0];
-      emptyInput.classList.add("redBorder");
-      emptyInput.select();
-      emptyInput.scrollIntoView();
-      return;
-    }
+    // if (emptyInput != undefined) emptyInput.classList.remove("redBorder");
+    // // validate firstname
+    // if ($("#fname").val().trim() == "") {
+    //   $("#fname").focus();
+    //   // $("#fname").removeClass('redBorder');
+    //   // if (emptyInput != undefined) emptyInput.classList.remove("redBorder");
+    //   // emptyInput = $("#fname")[0];
+    //   // emptyInput.classList.add("redBorder");
+    //   // emptyInput.select();
+    //   // emptyInput.scrollIntoView();
+    //   return false;
+    // }
   
-    // validate email
+    // // validate lastname
+    // if ($("#lname")[0].value == "") {
+    //   removeBorder();
+    //   emptyInput = $("#lname")[0];
+    //   emptyInput.classList.add("redBorder");
+    //   emptyInput.select();
+    //   emptyInput.scrollIntoView();
+    //   return;
+    // }
   
-    if (!validateEmail()) {
-      if(emptyInput!=undefined && emptyInput != $("#error")[0]){
-        removeBorder();
-      }
-      emptyInput = $("#email")[0];
-      emptyInput.classList.add("redBorder");
-      if(emptyInput!='')
-      // $('#error').innerHTML = "Enter valid Email";
-      email.scrollIntoView();
-      return;
-    }
+    // // validate email
   
-    // check if gender is selected
+    // if (!validateEmail()) {
+    //   if(emptyInput!=undefined && emptyInput != $("#error")[0]){
+    //     removeBorder();
+    //   }
+    //   emptyInput = $("#email")[0];
+    //   emptyInput.classList.add("redBorder");
+    //   if(emptyInput!='')
+    //   // $('#error').innerHTML = "Enter valid Email";
+    //   email.scrollIntoView();
+    //   return;
+    // }
+  
+    // // check if gender is selected
 
     
-    if ( $("#male").is(':checked') == false && $("#female").is(':checked') == false) {
-      removeBorder();
-      emptyInput = $("#male")[0];
-      emptyInput.classList.add("redBorder");
-      emptyInput.scrollIntoView();
-      return;
-    }
+    // if ( $("#male").is(':checked') == false && $("#female").is(':checked') == false) {
+    //   removeBorder();
+    //   emptyInput = $("#male")[0];
+    //   emptyInput.classList.add("redBorder");
+    //   emptyInput.scrollIntoView();
+    //   return;
+    // }
     
-    // check if hobbies field is empty
+    // // check if hobbies field is empty
 
   
-    if (selectedHobbies.length == 0) {
-      removeBorder();
-      emptyInput = $("#hobbies")[0];
-      emptyInput.classList.add("redBorder");
-      emptyInput.scrollIntoView();
+    // if (selectedHobbies.length == 0) {
+    //   removeBorder();
+    //   emptyInput = $("#hobbies")[0];
+    //   emptyInput.classList.add("redBorder");
+    //   emptyInput.scrollIntoView();
   
-      $("#hobbies_error")[0].innerHTML = "Select Hobbies";
-      return;
-    } else $("#hobbies_error")[0].innerHTML = "";
+    //   $("#hobbies_error")[0].innerHTML = "Select Hobbies";
+    //   return;
+    // } else $("#hobbies_error")[0].innerHTML = "";
   
-    // check if subject field is empty
+    // // check if subject field is empty
   
-    if (selectedSbject.length == 0) {
-      if (!alreadyClick) addClass();
-      $("#option_container")[0].scrollIntoView();
-      $("#subect_error")[0].innerHTML = "Select Subject";
-      return;
-    } else $("#subect_error")[0].innerHTML = "";
+    // if (selectedSbject.length == 0) {
+    //   if (!alreadyClick) addClass();
+    //   $("#option_container")[0].scrollIntoView();
+    //   $("#subect_error")[0].innerHTML = "Select Subject";
+    //   return;
+    // } else $("#subect_error")[0].innerHTML = "";
   
     
-    // validate table
-    for (var i = 0; i <= tableCount; i++) {
-      if($("#table_body")[0].rows[i] != undefined)
-      if (!checkEmptyCell(4, $("#table_body")[0].rows[i]))
-        return;
-    }
+    // // validate table
+    // for (var i = 0; i <= tableCount; i++) {
+    //   if($("#table_body")[0].rows[i] != undefined)
+    //   if (!checkEmptyCell(4, $("#table_body")[0].rows[i]))
+    //     return;
+    // }
   
-    // image validation
-    if (!fileValidation()) {
-      return;
-    } else $("#image_error")[0].innerHTML = "";
+    // // image validation
+    // // if (!fileValidation()) {
+    // //   return;
+    // // } else $("#image_error")[0].innerHTML = "";
 
-    // password validation
-    if ($("#pwd")[0].value == "") {
-      removeBorder();
-      emptyInput = $("#pwd")[0];
-      emptyInput.select();
-      emptyInput.scrollIntoView();
-      emptyInput.classList.add("redBorder");
-      $("#pwd_message")[0].innerHTML = "enter password";
-      return;
-    } else if ($(".invalid").length != 0) {
-      $("#pwd_message")[0].innerHTML = "enter valid password";
-      return;
-    }
+    // // password validation
+    // if ($("#pwd")[0].value == "") {
+    //   removeBorder();
+    //   emptyInput = $("#pwd")[0];
+    //   emptyInput.select();
+    //   emptyInput.scrollIntoView();
+    //   emptyInput.classList.add("redBorder");
+    //   $("#pwd_message")[0].innerHTML = "enter password";
+    //   return;
+    // } else if ($(".invalid").length != 0) {
+    //   $("#pwd_message")[0].innerHTML = "enter valid password";
+    //   return;
+    // }
 
 
     
-    if ($("#confirm_pwd")[0].value == "") {
-      removeBorder();
-      emptyInput = $("#confirm_pwd")[0];
-      emptyInput.select();
-      emptyInput.scrollIntoView();
-      emptyInput.classList.add("redBorder");
-      $("#pwd_message")[0].innerHTML = "confirm password";
-      return;
-    } else if (!confirmPassword()) {
-      $("#pwd_message")[0].innerHTML = "confirm password is wrong";
-      return;
-    } else if ($("#confirm_pwd")[0].value.length != $("#pwd")[0].value.length) {
-      removeBorder();
-      emptyInput = $("#confirm_pwd")[0];
-      emptyInput.select();
-      emptyInput.scrollIntoView();
-      emptyInput.classList.add("redBorder");
-      $("#pwd_message")[0].innerHTML = "confirm password is wrong";
-      return;
-    } else $("#pwd_message")[0].innerHTML = "";
+    // if ($("#confirm_pwd")[0].value == "") {
+    //   removeBorder();
+    //   emptyInput = $("#confirm_pwd")[0];
+    //   emptyInput.select();
+    //   emptyInput.scrollIntoView();
+    //   emptyInput.classList.add("redBorder");
+    //   $("#pwd_message")[0].innerHTML = "confirm password";
+    //   return;
+    // } else if (!confirmPassword()) {
+    //   $("#pwd_message")[0].innerHTML = "confirm password is wrong";
+    //   return;
+    // } else if ($("#confirm_pwd")[0].value.length != $("#pwd")[0].value.length) {
+    //   removeBorder();
+    //   emptyInput = $("#confirm_pwd")[0];
+    //   emptyInput.select();
+    //   emptyInput.scrollIntoView();
+    //   emptyInput.classList.add("redBorder");
+    //   $("#pwd_message")[0].innerHTML = "confirm password is wrong";
+    //   return;
+    // } else $("#pwd_message")[0].innerHTML = "";
   
-    // date validation
-    if (!validDate()) {
-      return;
-    }
+    // // date validation
+    // if (!validDate()) {
+    //   return;
+    // }
   
     // print output
-    var printContainer = $("#print")[0];
-    printContainer.innerHTML = "";
-    var form = $("#information")[0];
-    var formData = new FormData(form);
+    // var printContainer = $("#print")[0];
+    // printContainer.innerHTML = "";
+    // var form = $("#information")[0];
+    // var formData = new FormData(form);
   
-    for (item of formData) {
-      if (item[0] == "filename") {
-        var fileInput = $("#myFile");
-        if (fileInput.files && fileInput.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-            printContainer.innerHTML +=
-              '<img style = "width : 10rem" src="' + e.target.result + '"/>';
-          };
+    // for (item of formData) {
+    //   if (item[0] == "filename") {
+    //     var fileInput = $("#myFile");
+    //     if (fileInput.files && fileInput.files[0]) {
+    //       var reader = new FileReader();
+    //       reader.onload = function (e) {
+    //         printContainer.innerHTML +=
+    //           '<img style = "width : 10rem" src="' + e.target.result + '"/>';
+    //       };
   
-          reader.readAsDataURL(fileInput.files[0]);
+    //       reader.readAsDataURL(fileInput.files[0]);
+    //     }
+    //   } else
+    //     printContainer.innerHTML += item[0] + ": " + item[1] + "<br>" + "<br>";
+    // }
+
+
+    $.ajaxSetup({
+      cache: false
+    });
+
+    $.ajax({
+        url: "/php/ajax.php", 
+        type: "post",
+        data: $('#information').serialize() + '&action='+'RegistrationofUsers',
+        success: function(result)
+        {
+          window.location.href = "/php/display.php";
         }
-      } else
-        printContainer.innerHTML += item[0] + ": " + item[1] + "<br>" + "<br>";
-    }
-    
+    });
   }
   
 
@@ -252,13 +255,13 @@
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
     cell1.innerHTML =
-      '<input class="education_level" type="text" id="education_level" name="education" value = "" placeholder="Education qualification">';
+      '<input class="education_level" type="text" id="education_level" name="education[]" value = "" placeholder="Education qualification">';
     cell2.innerHTML =
-      '<input class="field" type="text" id="field" name="field" value="" placeholder="Field">';
+      '<input class="field" type="text" id="field" name="field[]" value="" placeholder="Field">';
     cell3.innerHTML =
-      '<input class="year" type="number" min="1990" id="year" name="year" value="" placeholder="Year">';
+      '<input class="year" type="number" min="1990" id="year" name="year[]" value="" placeholder="Year">';
     cell4.innerHTML =
-      '<input class="marks" type="number" name="marks" id="marks" value="" placeholder="Marks Obtained">';
+      '<input class="marks" type="number" name="marks[]" id="marks" value="" placeholder="Marks Obtained">';
     cell5.innerHTML =
       '<div id="add_and_delete" class="add_and_delete"> <button type="button" onclick="addFunc()" class="add" id="add" name="add" value="+"> + </button> <button type="button" onclick="myDeleteFunction()" class="minus" id="minus" name="minus" value="-"> - </button> </div>';
   
@@ -318,7 +321,7 @@
     $("#error")[0].innerHTML = "";
     $("#subect_error")[0].innerHTML = "";
     $("#hobbies_error")[0].innerHTML = "";
-    $("#image_error")[0].innerHTML = "";
+    // $("#image_error")[0].innerHTML = "";
     $("#date_error")[0].innerHTML = "";
   }
   
@@ -412,30 +415,30 @@
     return true;
   }
   
-  function fileValidation() {
-    var fileInput = $("#myFile")[0];
-    var imagePara = $("#image_error")[0];
+  // function fileValidation() {
+  //   var fileInput = $("#myFile")[0];
+  //   var imagePara = $("#image_error")[0];
   
-    if (fileInput.value == "") {
-      imagePara.innerHTML = "upload image file";
-      return false;
-    }
+  //   if (fileInput.value == "") {
+  //     imagePara.innerHTML = "upload image file";
+  //     return false;
+  //   }
   
-    var filePath = fileInput.value;
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-    console.log(fileInput.files[0].size);
+  //   var filePath = fileInput.value;
+  //   var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+  //   console.log(fileInput.files[0].size);
   
-    if (!allowedExtensions.exec(filePath)) {
-      imagePara.innerHTML = "wrong image format";
-      return false;
-    } else imagePara.innerHTML = "";
-    var filesize = fileInput.files[0].size / 1024;
-    if (filesize < 50 || filesize > 200) {
-      alert("Incorrect file size");
-      return false;
-    }
-    return true;
-  }
+  //   if (!allowedExtensions.exec(filePath)) {
+  //     imagePara.innerHTML = "wrong image format";
+  //     return false;
+  //   } else imagePara.innerHTML = "";
+  //   var filesize = fileInput.files[0].size / 1024;
+  //   if (filesize < 50 || filesize > 200) {
+  //     alert("Incorrect file size");
+  //     return false;
+  //   }
+  //   return true;
+  // }
   
   var date = $("#date_input")[0];
   

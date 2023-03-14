@@ -1,0 +1,218 @@
+body {
+    display: grid;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+td,
+th {
+    padding: 0.5rem 0.5rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+.qualification_column {
+    padding: 0;
+
+}
+
+td {
+    vertical-align: top;
+    color: darkblue;
+}
+
+.image_column {
+    display: flex;
+}
+
+th {
+    background-color: rgb(227, 129, 163);
+    color: white;
+}
+
+.main_data {
+    background-color: rgb(219, 81, 129);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(250, 235, 240);
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(250, 222, 232);
+}
+
+.qualification_table {
+    height: 100%;
+}
+
+.preview {
+    height: 50vh;
+    overflow-y: scroll;
+}
+
+.preview_table {
+    height: fit-content;
+}
+
+a {
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clear_filter {
+    width: 10%;
+    border: 2px solid darkblue;
+    color: darkblue;
+    background-color: white;
+    justify-self: center;
+    height: 1.8rem;
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    border-radius: 20px;
+}
+
+.clear_filter:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.action_btn {
+    display: flex;
+}
+
+h1 {
+    color: darkblue;
+}
+
+.search_container {
+    display: flex;
+    justify-content: center;
+}
+
+.search {
+    width: 50%;
+    height: 3rem;
+    padding: 0.5rem;
+    border: 2px solid darkblue;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    color: darkblue;
+}
+
+.search::placeholder {
+    color: darkblue;
+
+}
+
+.search-btn {
+    border: none;
+    position: relative;
+    width: 7rem;
+    height: 3rem;
+    background-color: darkblue;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    left: -3cm;
+    top: 0cm;
+    color: white;
+    font-size: 1rem;
+}
+
+.sort_anchor {
+    background-color: transparent;
+}
+
+.sort_anchor:hover {
+    background-color: transparent;
+}
+
+.search-btn:hover {
+    background-color: blue;
+}
+
+tr.pagination_row,
+td.pagination_cell,
+.pagination_body {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+
+.pagination_anchor {
+    color: darkblue;
+    border: 2px solid darkblue;
+    border-radius: 0;
+    font-weight: 600;
+
+}
+
+h3 {
+    display: inline;
+    color: darkblue;
+}
+
+.page_no {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+tr.row_per_page {
+    background-color: transparent;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#submit_rows>label {
+    color: darkblue;
+    padding: 0.3rem;
+}
+
+#rows {
+    border: none;
+    color: white;
+    font-weight: 600;
+    background-color: darkblue;
+    padding: 0.2rem 0;
+    padding-left: 0.2rem;
+}
+.qualification_container {
+    height: 30vh;
+    overflow-y: scroll;
+}
+
+.qualification_table {
+    height: fit-content;
+}
+
+.delete_btn:hover {
+    background-color: blue;
+}
+
+a {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background-color: red;
+    border-radius: 10px;
+    padding: 0.3rem 1rem;
+    color: white;
+}
+
+a:hover {
+    background-color: blue;
+}
